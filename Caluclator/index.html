@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <h1 class="app-title">Calculator</h1>
+      <div class="header-actions">
+        <button type="button" class="icon-btn" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
+          <span class="theme-icon theme-icon--light" aria-hidden="true">☀️</span>
+          <span class="theme-icon theme-icon--dark" aria-hidden="true">🌙</span>
+        </button>
+        <button type="button" class="icon-btn" id="soundToggle" aria-label="Toggle sound" title="Toggle sound">
+          <span class="sound-icon sound-icon--on" aria-hidden="true">🔊</span>
+          <span class="sound-icon sound-icon--off" aria-hidden="true">🔇</span>
+        </button>
+        <button type="button" class="icon-btn" id="historyToggle" aria-label="Toggle history" title="Toggle history">
+          <span aria-hidden="true">📋</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="main-layout">
+      <section class="calculator" aria-label="Calculator">
+        <div class="display">
+          <div class="display__previous" id="previousDisplay" aria-live="polite"></div>
+          <div class="display__current" id="currentDisplay" aria-live="polite">0</div>
+          <div class="display__error" id="errorDisplay" role="alert" hidden></div>
+        </div>
+
+        <div class="keypad">
+          <button type="button" class="btn btn--function" data-action="clear" data-key="Escape">C</button>
+          <button type="button" class="btn btn--function" data-action="delete" data-key="Backspace">⌫</button>
+          <button type="button" class="btn btn--operator" data-action="operator" data-value="/" data-key="/">÷</button>
+          <button type="button" class="btn btn--operator" data-action="operator" data-value="*" data-key="*">×</button>
+
+          <button type="button" class="btn btn--number" data-action="number" data-value="7" data-key="7">7</button>
+          <button type="button" class="btn btn--number" data-action="number" data-value="8" data-key="8">8</button>
+          <button type="button" class="btn btn--number" data-action="number" data-value="9" data-key="9">9</button>
+          <button type="button" class="btn btn--operator" data-action="operator" data-value="-" data-key="-">−</button>
+
+          <button type="button" class="btn btn--number" data-action="number" data-value="4" data-key="4">4</button>
+          <button type="button" class="btn btn--number" data-action="number" data-value="5" data-key="5">5</button>
+          <button type="button" class="btn btn--number" data-action="number" data-value="6" data-key="6">6</button>
+          <button type="button" class="btn btn--operator" data-action="operator" data-value="+" data-key="+">+</button>
+
+          <button type="button" class="btn btn--number" data-action="number" data-value="1" data-key="1">1</button>
+          <button type="button" class="btn btn--number" data-action="number" data-value="2" data-key="2">2</button>
+          <button type="button" class="btn btn--number" data-action="number" data-value="3" data-key="3">3</button>
+          <button type="button" class="btn btn--equals" data-action="equals" data-key="Enter">=</button>
+
+          <button type="button" class="btn btn--number btn--zero" data-action="number" data-value="0" data-key="0">0</button>
+          <button type="button" class="btn btn--number" data-action="decimal" data-value="." data-key=".">.</button>
+        </div>
+      </section>
+
+      <aside class="history-panel" id="historyPanel" aria-label="Calculation history" hidden>
+        <div class="history-panel__header">
+          <h2>History</h2>
+          <button type="button" class="text-btn" id="clearHistory" title="Clear history">Clear</button>
+        </div>
+        <ul class="history-list" id="historyList" role="list"></ul>
+        <p class="history-empty" id="historyEmpty">No calculations yet</p>
+      </aside>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
